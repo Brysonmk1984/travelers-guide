@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title>Trip Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script src="script.js"></script>
+	<script>
+		
+	</script>
+	<style>
+		body{
+		
+		}
+		nav ul{
+			list-style:none;
+			padding:0px;
+		}
+		nav ul li{
+			display:inline-block;
+			width:25%;
+			text-align:center;
+			background:white;
+			margin:0px;
+			padding:0px;
+		}
+	</style>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="dashboard.html">Dashboard</a></li><li><a href="contacts.html">Contacts</a></li><li><a href="photos.html">Photos</a></li><li><a href="find.html">Find</a></li>
+		</ul>
+	</nav>
+	<section>
+		<h2>Current Location</h2>
+		<iframe width="100%" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&amp;ll=38.997934,-105.550567&amp;spn=6.410291,12.205811&amp;t=m&amp;z=7&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/?ie=UTF8&amp;ll=38.997934,-105.550567&amp;spn=6.410291,12.205811&amp;t=m&amp;z=7&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small>
+	</section>
+	<section>
+		<h2><i class="fa fa-check-square-o"></i> To Do</h2>
+	</section>
+	<section>
+		<h2><i class="fa fa-usd"></i> Budget</h2>
+	</section>
+	<section>
+		<h2><i class="fa fa-group"></i> Contacts</h2>
+	</section>
+	<section ng-app="weather" ng-controller="WeatherController">
+		<h2><i class="fa fa-umbrella"></i>Weather</h2>
+		<ul id="weatherList"></ul>
+	</section>
+	<section>
+		<h2><i class="fa fa-bar-chart-o"></i> Stats</h2>
+	</section>
+</body>
+</html>
