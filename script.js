@@ -32,24 +32,22 @@ travelersApp.factory('weatherFactory', function($http){
 
 travelersApp.controller('WeatherCtrl',['$scope', 'weatherFactory', function($scope, weatherFactory){
 
+		// setTimeout(function(){
+
+		// 	weatherFactory();
+		// },7000);
+		
+
+
 		$scope.weatherHeadline = "The weather today will be:";
 		$scope.handleWeatherData = function(data){
 			$scope.weather = data.data.weather[0];
 			console.log($scope.weather);
 		};
-		$scope.weather = weatherFactory.success($scope.handleWeatherData);
+		// $scope.weather = weatherFactory.success($scope.handleWeatherData);
 	}
 ]);
 
 
 
 	
-
-
-
-/*travelersApp.controller('WeatherDataCtrl',['weatherFactory',
-	function(weatherFactory){
-		this.message = weatherFactory;
-		console.log(this.message);
-	}
-]);*/
