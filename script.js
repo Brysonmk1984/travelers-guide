@@ -12,13 +12,14 @@ travelersApp.controller('WeatherCtrl',['$scope', '$http', function($scope, $http
 		$scope.weatherHeadline = "The weather today will be:";
 		$scope.weather;
 		$scope.currentLocation;
-		$scope.city;
-		$scope.state;
-		$scope.lat;
-		$scope.lng;
+		// $scope.city;
+		// $scope.state;
+		// $scope.lat;
+		// $scope.lng;
 		$scope.handleWeatherData = function(weatherData){
 			$scope.weather = weatherData.data.weather[0];
 			console.log(weatherData.data.weather[0]);
+			console.log($scope.currentLocation);
 
 		};
 		var locationObject = {};
@@ -61,11 +62,11 @@ travelersApp.controller('WeatherCtrl',['$scope', '$http', function($scope, $http
 				        
 				        
 
-				        	$scope.currentLocation = results[0].formatted_address;
-				        	$scope.city = results[0].address_components[3].long_name;
-				        	$scope.state = results[0].address_components[5].short_name;
-				        	$scope.lat = locationObject.lat;
-				        	$scope.lng = locationObject.lng;
+				        	console.log($scope.currentLocation = results[0].formatted_address);
+				        	// $scope.city = results[0].address_components[3].long_name;
+				        	// $scope.state = results[0].address_components[5].short_name;
+				        	// $scope.lat = locationObject.lat;
+				        	// $scope.lng = locationObject.lng;
 
 				        } else {
 				          alert("No results found");

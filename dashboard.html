@@ -29,13 +29,13 @@
 		}
 	</style>
 </head>
-<body ng-app="travelersApp">
+<body ng-app="travelersApp" ng-controller="WeatherCtrl">
 	<nav>
 		<ul>
 			<li><a href="dashboard.html">Dashboard</a></li><li><a href="contacts.html">Contacts</a></li><li><a href="photos.html">Photos</a></li><li><a href="find.html">Find</a></li>
 		</ul>
 	</nav>
-	<section ng-controller="WeatherCtrl">
+	<section>
 		<h2>{{currentLocation}}</h2>
 		<div id="map-canvas"/>
 		<!-- <iframe width="100%" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/?ie=UTF8&amp;ll=38.997934,-105.550567&amp;spn=6.410291,12.205811&amp;t=m&amp;z=7&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com/?ie=UTF8&amp;ll=38.997934,-105.550567&amp;spn=6.410291,12.205811&amp;t=m&amp;z=7&amp;source=embed" style="color:#0000FF;text-align:left">View Larger Map</a></small> -->
@@ -49,7 +49,7 @@
 	<section>
 		<h2><i class="fa fa-group"></i> Contacts</h2>
 	</section>
-	<section ng-controller="WeatherCtrl">
+	<section>
 		<h2><i class="fa fa-umbrella"></i>Weather</h2>
 		<strong>Weather for {{city}}, {{state}}</strong>
 		<ul id="weatherList">
