@@ -1,20 +1,136 @@
 <html>
 <head>
-	<title>Trip Select</title>
+	<title>Trip Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=.75, maximum-scale=.75">
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKGrprdPJ6e9D-LqpX4oW1EN0U6QsZQtA">
+    </script>
+	<style>
+		body{
+			background:rgb(247,147,30);
+		}
+		header{
+			margin-bottom:30px;
+		}
+		header #primaryHeaderInfo{
+			color:white;
+			background:rgb(247,147,30);
+		}
+		header #subHeaderInfo{
+			color:rgb(128,128,128);
+			background:rgb(51,51,51);
+		}
+		header h1{
+			margin:5px;
+			font-size:15px;
+			font-weight:bold;
+		}
+		header #tripsButton{
+			border:solid 2px white;
+			border-radius:4px;
+			padding:3px 4px;
+			text-align:center;
+			margin-right:5px;
+		}
+		nav{
+
+			z-index:1000;
+			position:relative;
+			width:70px;
+		}
+		nav ul{
+			list-style:none;
+			padding-left:0px;
+			float:right;
+			margin-right:-2px;
+		}
+		nav ul li{
+			display:block;
+			padding:12px 10px 12px 5px;
+			margin-bottom:20px;
+			width:64px;
+		}
+		nav ul li.active{
+			background-color:white;
+			border-left:solid 2px rgb(128,128,128);
+			border-top:solid 2px rgb(128,128,128);
+			border-bottom:solid 2px rgb(128,128,128);
+			border-bottom-left-radius: 3px;
+			border-top-left-radius: 3px;
+		}
+		section{
+			position:relative;
+			z-index:100;
+			height:100%;
+
+			background:white;
+			padding:15px;
+			border-left:solid 2px rgb(128,128,128);
+			border-top:solid 2px rgb(128,128,128);
+		}
+		#map-canvas{
+			height:200px;
+			width:100%;
+		}
+		/*Utility Classes*/
+		.inline_block{
+			display:inline-block;
+		}
+		.block{
+			display:block;
+		}
+		.inline{
+			display:inline;
+		}
+		.vertical_align_top{
+			vertical-align:top;
+		}
+	</style>
 </head>
-<body ng-app>
-	<div class="text-center">
-		<h1>Select Your Trip:</h1>
-			<ul>
-				<li><a href="dashboard.html">North East -Road Trip</a></li>
-				<li><a href="dashboard.html">Europe - Backpacking</a></li>
-				<li><a href="dashboard.html">New Orleans - VooDoo Festical</a></li>
-			</ul>
-		<h2>Previous Trips:</h2>
-	</div>
+<body ng-app="travelersApp" ng-controller="WeatherCtrl">
+	<header>
+		<div id="primaryHeaderInfo">
+			<h1 class="inline_block">TRAVELOLIO</h1>
+			<div id="tripsButton" class="inline_block pull-right">
+				<i class="fa fa-plane"></i>
+			</div>
+		</div>
+		<div id="subHeaderInfo" class="clearfix">
+			<span class="inline_block pull-left">Tuesday, December 12th</span>
+			<span class="inline_block pull-right">Superior, CO</span>
+		</div>
+	</header>
+	<nav class="inline_block vertical_align_top">
+		<ul class="text-center">
+			<li><i class="fa fa-location-arrow block"></i>Location</li>
+			<li class="active"><i class="fa fa-cloud block"></i>Weather</li>
+			<li><i class="fa fa-usd block"></i>Budget</li>
+			<li><i class="fa fa-bar-chart-o block"></i>Stats</li>
+			<li><i class="fa fa-users block"></i>Contacts</li>
+			<li><i class="fa fa-edit block"></i>Todo</li>
+		</ul>
+	</nav>
+	
+
+	<section class="inline_block vertical_align_top">
+		<div>
+			<h2>{{currentLocation}}</h2>
+			<div id="map-canvas"/>
+		</div>
+
+		<h2><i class="fa fa-umbrella"></i>Weather</h2>
+		<strong>Current weather for {{city}}, {{state}}, {{country}}</strong>
+		<ul id="weatherList">
+			<li ng-repeat="(key, value) in weather">{{key}} - {{value}}</li>
+		</ul>
+	</section>
+	
+
+
+	<script src="script.js" type="text/javascript"></script>
 </body>
 </html>
